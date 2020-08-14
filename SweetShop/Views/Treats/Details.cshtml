@@ -2,15 +2,15 @@
   Layout = "_Layout";
 }
 
-@model SweetShop.Models.Treat
+@model SweetShop.Models.Treat;
 
 <h2>Treat Details:</h2>
 <hr />
 <h3>Treat Name: @Html.DisplayFor(model => model.TreatName)</h3>
 
-@if (@Model.Treats.Count == 0)
+@if (@Model.Flavors.Count == 0)
 {
-  <p>no treats found!?</p>
+  <p>no flavors found!?</p>
 }
 else
 {
