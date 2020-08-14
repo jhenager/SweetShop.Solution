@@ -1,0 +1,27 @@
+@{
+  Layout = "_Layout";
+}
+
+@model SweetShop.Models.Treat
+
+<h2>Treat Details:</h2>
+<hr />
+<h3>Treat Name: @Html.DisplayFor(model => model.TreatName)</h3>
+
+@if (@Model.Treats.Count == 0)
+{
+  <p>no treats found!?</p>
+}
+else
+{
+  <ul>
+    @foreach(var join in @Model.Flavors)
+    {
+      <li>Flavor: @join.Flavor.FlavorName</li>
+    }
+  </ul>
+}
+<p>@Html.ActionLink("Back to list", "Index")</p>
+
+<p>@Html.ActionLink("Edit Treat", "Edit", new { id = Model.TreatId })</p>
+<p>@Html.ActionLink("Delete Treat", "Delete", new { id = Model.TreatId })</p>

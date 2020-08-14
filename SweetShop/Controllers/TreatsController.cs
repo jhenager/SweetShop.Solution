@@ -14,7 +14,6 @@ namespace SweetShop.Controllers
   public class TreatsController : Controller
   {
     private readonly SweetShopContext _db;
-    // private readonly UserManager<ApplicationUser> _userManager;
     public TreatsController(SweetShopContext db)
     {
       _db = db;
@@ -36,6 +35,14 @@ namespace SweetShop.Controllers
         _db.Treats.Add(treat);
         _db.SaveChanges();
         return RedirectToAction("Index");
+    }
+    public ActionResult Details(int id)
+    {
+      var thisTreat = _db.Treats
+        .Include(treat => treat.Flavors)
+        .ThenInclude(join => join.Flavor)
+        .FirstOrDefault(treat => treat.TreatId == id);
+      return View(thisTreat);
     }
   }
 }
