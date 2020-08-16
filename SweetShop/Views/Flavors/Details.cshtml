@@ -1,0 +1,24 @@
+@{
+  Layout = "_Layout";
+}
+
+@model SweetShop.Models.Flavor;
+
+
+<h3>@Html.DisplayFor(model => model.FlavorName) Treats:</h3>
+
+@if (@Model.Treats.Count == 0)
+{
+  <p>No treats found!</p>
+}
+else
+{
+  <ul>
+    @foreach(var join in @Model.Treats)
+    {
+      <li>Treat Name: @join.Treat.TreatName</li>
+    }
+  </ul>
+}
+
+<p>@Html.ActionLink("Back to list of flavors", "Index")</p>
