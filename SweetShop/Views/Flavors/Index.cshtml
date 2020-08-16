@@ -1,0 +1,18 @@
+@{
+  Layout = "_Layout";
+}
+
+@using SweetShop.Models;
+@model List<SweetShop.Models.Flavor>;
+
+<h1>Flavors:</h1>
+
+<ul>
+  @foreach(Flavor flavor in Model)
+  {
+    <li>@Html.ActionLink($"{flavor.FlavorName}", "Details", new { id = flavor.FlavorId })</li>
+  }
+</ul>
+
+<p>@Html.ActionLink("See all Treats", "Index", "Treats")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>
