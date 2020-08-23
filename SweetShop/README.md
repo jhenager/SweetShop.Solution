@@ -36,7 +36,7 @@ This project uses C#, MySQL, Entity Framework, Microsoft Identity, and MVC to cr
 **To use this program:**
 
 1. Open your preferred browser.
-2. Navigate to https://github.com/jkbutserious/SweetShop.Solution.git.
+2. Navigate to https://github.com/jhenager/SweetShop.Solution.git.
 3. Click the **Code** button and click **Download ZIP** to clone the repository to your computer.
 4. Open the Windows PowerShell console, VS Code Bash terminal, or the MacOS Terminal and use the ``cd [YOUR DOWNLOAD FILEPATH]/SweetShop.Solution/SweetShop`` command to navigate to the SweetShop subdirectory.
 5. Use the ``dotnet restore`` command to install the necessary packages on your computer.
