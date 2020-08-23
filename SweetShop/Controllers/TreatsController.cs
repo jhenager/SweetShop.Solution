@@ -59,7 +59,8 @@ namespace SweetShop.Controllers
     [HttpPost]
     public ActionResult Edit(Treat treat, int FlavorId)
     {
-        if (FlavorId != 0)
+        var existingConnection = _db.TreatFlavor.FirstOrDefault(join => join.TreatId == treat.TreatId && join.FlavorId == FlavorId);
+        if (existingConnection == null && FlavorId != 0)
         {
           _db.TreatFlavor.Add(new TreatFlavor() {FlavorId = FlavorId, TreatId = treat.TreatId});
         }
@@ -81,6 +82,14 @@ namespace SweetShop.Controllers
         _db.Treats.Remove(thisTreat);
         _db.SaveChanges();
         return RedirectToAction("Index");
+    }
+    [HttpPost]
+    public ActionResult DeleteFlavor (int joinId)
+    {
+      var joinEntry = _db.TreatFlavor.FirstOrDefault(entry => entry.TreatFlavorId == joinId);
+      _db.TreatFlavor.Remove(joinEntry);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
     }
 
     public ActionResult AddFlavor(int id)
